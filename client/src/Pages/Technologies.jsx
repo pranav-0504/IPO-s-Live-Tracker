@@ -5,6 +5,7 @@ import jsLogo from '../assets/Tech-logos/js.png';
 import dotEnvLogo from '../assets/Tech-logos/dotenv.png';
 import NodemonLogo from '../assets/Tech-logos/Nodemon.png';
 import PostManLOGO from '../assets/Tech-logos/PostManLogo.png';
+import RenderLogo from '../assets/Tech-logos/Render.png';
 
 const technologies = [
   {
@@ -83,6 +84,11 @@ const technologies = [
     name: "Postman",
     logo:   PostManLOGO,
     role: "API Testing and Development",
+  },
+    {
+    name: "Render",
+    logo:   RenderLogo,
+    role: "Backend server hosting for Deployment",
   },
 ];
 
