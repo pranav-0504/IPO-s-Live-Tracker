@@ -1,7 +1,3 @@
-Bilkul bhai! Neeche tere **IPO Live Tracker MERN** project ke liye ek **clean, professional, and eye-catching README** hai — jisme sari cheezein include hai: project intro, features, tech stack, setup guide, deployment, and screenshots badge placeholders etc.
-
----
-
 ## ✅ Final `README.md` for Your Project
 
 ```markdown
