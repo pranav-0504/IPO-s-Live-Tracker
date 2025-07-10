@@ -69,8 +69,7 @@ const technologies = [
     logo: jsLogo,
     role: "Core Scripting Language for Web",
   },
-
-    {
+  {
     name: "dotENV File",
     logo: dotEnvLogo,
     role: "Manage environment variables (for hiding DB URI, etc.)",
