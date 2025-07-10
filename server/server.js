@@ -25,6 +25,16 @@ app.get('/', (req, res) => {
     res.send('Welcome to the server backend running perfectly!');
 });
 
+app.get('/api/scrape', async (req, res) => {
+  try {
+    await scrapeIpoData();
+    res.status(200).send("✅ Scraping complete via manual route");
+  } catch (err) {
+    console.error("❌ Error running manual scrape:", err.message);
+    res.status(500).send("❌ Scraping failed");
+  }
+});
+
 
 // port and db connection:
 const PORT = process.env.PORT || 5000;          // server running at 5000 port
