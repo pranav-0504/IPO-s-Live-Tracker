@@ -1,40 +1,24 @@
 require('dotenv').config({ path: '../.env' });
 
-// const isProduction = process.env.NODE_ENV === 'production';
-const isProduction = process.env.NODE_ENV === 'production' || process.env.RENDER === 'true';
-
-const puppeteer = isProduction
-  ? require('puppeteer-core')
-  : require('puppeteer');
-const chromium = isProduction ? require('chrome-aws-lambda') : null;
-
+const puppeteer = require('puppeteer');
 const IPO = require('../models/ipo');
 
 const scrapeIpoData = async () => {
   let browser;
 
   try {
-    console.log("📍 Environment:", isProduction ? "Production (Render)" : "Local");
+    console.log("📍 Environment:", process.env.NODE_ENV);
 
-    browser = await puppeteer.launch(
-      isProduction
-        ? {
-            args: chromium.args,
-            defaultViewport: chromium.defaultViewport,
-            executablePath: await chromium.executablePath,
-            headless: chromium.headless,
-          }
-        : {
-            headless: true, // local default
-          }
-    );
+    browser = await puppeteer.launch({
+      headless: true,
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    });
 
     const page = await browser.newPage();
     await page.goto('https://www.investorgain.com/report/live-ipo-gmp/331/all/', {
       waitUntil: 'networkidle0',
     });
 
-    // ✅ scraping logic (same as before)
     const ipoData = await page.evaluate(() => {
       const rows = Array.from(document.querySelectorAll('#report_table tbody tr'));
       return rows.map(row => {
@@ -46,7 +30,6 @@ const scrapeIpoData = async () => {
 
         const name = get('Name');
         const baseName = name.split('IPO')[0].trim();
-
         if (!baseName || !name) return null;
 
         return {
@@ -81,7 +64,6 @@ const scrapeIpoData = async () => {
           },
           { upsert: true, new: true }
         );
-
         console.log("✅ Saved:", saved.name);
       } catch (err) {
         console.error("❌ DB Error:", err.message);
