@@ -19,7 +19,7 @@
     "express": "^5.1.0",
     "mongoose": "^8.16.2",
     "node-cron": "^4.2.0",
-    "puppeteer": "^24.12.0",
+    "puppeteer": "^10.4.0",
     "puppeteer-core": "^10.4.0"
   },
   "devDependencies": {
