@@ -10,7 +10,8 @@ const IpoList = () => {
   const [statusType, setStatusType] = useState("all");
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/ipos")
+    // axios.get("http://localhost:5000/api/ipos")
+    axios.get("https://ipo-s-live-tracker.onrender.com/api/ipos")      // main hosted server on render.com
       .then(res => {
         console.log("Fetched IPOs:", res.data);
         setIpos(res.data);
