@@ -4,7 +4,7 @@ A powerful web app that tracks and displays real-time data of all ongoing and up
 
 ![Status](https://img.shields.io/badge/status-live-brightgreen) ![License](https://img.shields.io/badge/license-MIT-blue) ![PRs](https://img.shields.io/badge/PRs-welcome-yellow)
 
-> 🔗 Live Demo: [ipo-s-live-tracker.onrender.com](https://ipo-s-live-tracker.onrender.com)
+> 🔗 Live Demo: https://ipo-live-tracker.netlify.app/feedback
 
 ---
 
