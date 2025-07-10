@@ -1,6 +1,7 @@
 require('dotenv').config({ path: '../.env' });
 
-const isProduction = process.env.NODE_ENV === 'production';
+// const isProduction = process.env.NODE_ENV === 'production';
+const isProduction = process.env.NODE_ENV === 'production' || process.env.RENDER === 'true';
 
 const puppeteer = isProduction
   ? require('puppeteer-core')
