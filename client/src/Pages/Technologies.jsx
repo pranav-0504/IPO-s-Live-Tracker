@@ -3,7 +3,7 @@ import cheerioLogo from '../assets/Tech-logos/cheerio.png';
 import HTMLLogo from '../assets/Tech-logos/HTML.png';
 import jsLogo from '../assets/Tech-logos/js.png';
 import dotEnvLogo from '../assets/Tech-logos/dotenv.png';
-import NodemonLogo from '../assets/Tech-logos/nodemon.png';
+import NodemonLogo from '../assets/Tech-logos/Nodemon.png';
 import PostManLOGO from '../assets/Tech-logos/PostManLogo.png';
 
 const technologies = [
