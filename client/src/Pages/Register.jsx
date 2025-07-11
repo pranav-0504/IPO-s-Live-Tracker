@@ -2,6 +2,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+import getBackendUrl from "../utils/getBackendUrl";
+
+
 const Register = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -17,8 +20,12 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage("");
+
+    const backendURL = getBackendUrl(); 
+
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/register", formData);
+    //   const res = await axios.post("http://localhost:5000/api/auth/register", formData);
+      const res = await axios.post(`${backendURL}/api/auth/register`, formData);
       setMessage(res.data.message || "Registered successfully!");
       setTimeout(() => navigate("/login"), 1500);
     } catch (err) {

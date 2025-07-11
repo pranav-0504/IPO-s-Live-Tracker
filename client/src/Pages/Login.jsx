@@ -2,6 +2,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+import getBackendUrl from "../utils/getBackendUrl";
+
+const backendURL = getBackendUrl();     // Using utility function to get backend URL
+
+
 const Login = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -16,8 +21,12 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage("");
+    
+    const backendURL = getBackendUrl(); 
+    
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", formData);
+      // const res = await axios.post("http://localhost:5000/api/auth/login", formData);
+      const res = await axios.post(`${backendURL}/api/auth/login`, formData);
       setMessage(res.data.message || "Login successfully!");
 
       // Redirect to profile after 1 seconds = 1000 milliseconds
