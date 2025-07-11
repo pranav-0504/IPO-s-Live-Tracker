@@ -3,6 +3,8 @@ import axios from "axios";
 import IpoCard from "../components/IpoCard";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 
+import getBackendUrl from "../utils/getBackendUrl";
+
 const IpoList = () => {
   const [ipos, setIpos] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -10,8 +12,13 @@ const IpoList = () => {
   const [statusType, setStatusType] = useState("all");
 
   useEffect(() => {
-    // axios.get("http://localhost:5000/api/ipos")
-    axios.get("https://ipo-s-live-tracker.onrender.com/api/ipos")      // main hosted server on render.com
+    
+    //! axios.get("http://localhost:5000/api/ipos")        // For Local dev testing
+    //! axios.get("https://ipo-s-live-tracker.onrender.com/api/ipos")      // main hosted server on render.com
+
+    const backendURL = getBackendUrl();     // Using utility function to get backend URL
+
+    axios.get(`${backendURL}/api/ipos`)     // Using utility function to get backend URL
       .then(res => {
         console.log("Fetched IPOs:", res.data);
         setIpos(res.data);

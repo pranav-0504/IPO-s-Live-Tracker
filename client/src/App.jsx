@@ -8,6 +8,7 @@ import IpoList from './Pages/IpoList';
 import LiveStats from './Pages/LiveStats';
 import Technologies from './Pages/Technologies';
 import Feedback from './Pages/Feedback';
+import About from './Pages/About';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -35,6 +36,7 @@ const App = () => {
             <Route path ="/stats" element = {<LiveStats />}/>
             <Route path="/technologies" element = {<Technologies />}/>
             <Route path="/feedback" element = {<Feedback />}/>
+            <Route path="/about" element = {<About />}/>
             
             {/* Add more routes as needed */}
           </Routes>

@@ -14,10 +14,12 @@ const feedbackRoute = require('./Routes/feedbackRoute');
 const app = express();
 
 app.use(cors({
-  origin: "https://ipo-live-tracker.netlify.app",       // Replace with your frontend URL
+  // origin: "https://ipo-live-tracker.netlify.app",       // Replace with your frontend URL
+  origin: ["http://localhost:5173", "https://ipo-live-tracker.netlify.app"],
   methods: "GET,POST,PUT,DELETE", // Allowed HTTP methods Requests
   credentials: true
 }));
+
 app.use(express.json());    // Middleware to parse JSON bodies
 
 // default route testing:
