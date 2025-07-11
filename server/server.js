@@ -3,12 +3,13 @@ require('dotenv').config();     // calling dotenv to load environment variables 
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');       // Importing CORS for frontend se backend ko connect karne ke liye
+const bcrypt = require("bcryptjs");
 
 const ipoRoutes= require('./Routes/ipoRoutes');   // Importing the routes for IPOs
 const scrapeIpoData = require('./scraper/scrapeIpos');
 const feedbackRoute = require('./Routes/feedbackRoute');
-//! Importing the feedback route for handling feedback submissions
-const cleanOldIpos = require("./scraper/cleanOldIpos");
+
+const authRoutes = require('./Routes/authRoutes');  // Importing the authentication routes
 
 const app = express();
 
@@ -21,16 +22,18 @@ app.use(cors({
 
 app.use(express.json());    // Middleware to parse JSON bodies
 
-// default route testing:     //! localhost:5000/
+//! default route testing:           https://localhost:5000/
 app.get('/', (req, res) => {
     res.send('Welcome to the server backend running perfectly!');
 });
 
+// get Request
 app.get('/api/scrape', async (req, res) => {
   try {
     await scrapeIpoData();
     res.status(200).send("✅ Scraping complete via manual route");
-  } catch (err) {
+  } 
+  catch (err) {
     console.error("❌ Error running manual scrape:", err.message);
     res.status(500).send("❌ Scraping failed");
   }
@@ -55,11 +58,7 @@ mongoose.connect(process.env.MONGO_URI)         // connecting with DB
     // setInterval(scrapeIpoData, 15 * 60 * 1000);
 
     // 🔁 Run every 15 minutes for testing
-    setInterval(scrapeIpoData, 1 * 60 * 1000);
-
-    //! cleanOldIpos function ko call karenge:
-    await cleanOldIpos();  // 🔁 Run once on server start
-    setInterval(cleanOldIpos, 9 * 60 * 60 * 1000);        // 🔁 Every 9 hours
+    setInterval(scrapeIpoData, 15 * 60  * 1000);
 
     app.listen(PORT, () => {
       console.log(`🚀 Server running at http://localhost: ${PORT}`);
@@ -74,6 +73,16 @@ app.use('/api', ipoRoutes);  // Using the IPO routes for all API requests
 
 app.use('/api/feedback', feedbackRoute); // Using the feedback route for feedback requests
 
+app.use('/api/auth', authRoutes);
+
+
+
+
+
+
+
+
+
+
 // http://localhost:5000/api/ipos            will be the link
 // idhr sara data get kia h
-

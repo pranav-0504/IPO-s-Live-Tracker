@@ -52,15 +52,22 @@ const scrapeIpoData = async () => {
 
     console.log(`🔍 Fetched ${ipoData.length} IPO rows`);
 
+    const currentYear = new Date().getFullYear();
+    const today = new Date();
+
+    let inserted = 0, skipped = 0;
+
     for (const ipo of ipoData) {
       try {
+        const [day, month] = ipo.closeDate.split('-');
+        const formattedCloseDate = new Date(`${month} ${day} ${currentYear}`);
 
-        const currentYear = new Date().getFullYear();
-        const rawCloseDate = ipo.closeDate;             // e.g., "8-Jul" or "11-Jul"
-        const [day, month] = rawCloseDate.split('-');   // "8", "Jul"
-        
-        // const formattedCloseDate = new Date(`${ipo.closeDate}-2025`); // Assuming year is 2025
-        const formattedCloseDate = new Date(`${month} ${day} ${currentYear}`); // "Jul 08 2025"
+        // 👉 Skip if IPO is closed more than 5 days ago
+        const diffInDays = (today - formattedCloseDate) / (1000 * 60 * 60 * 24);
+        if (diffInDays > 14) {
+          skipped++;
+          continue;
+        }
 
         const saved = await IPO.findOneAndUpdate(
           { baseName: ipo.baseName },
@@ -68,14 +75,15 @@ const scrapeIpoData = async () => {
             $set: {
               ...ipo,
               gmpUpdatedAt: new Date(),
-              closingDate: formattedCloseDate, 
-
-              // closingDate: new Date(ipo.closeDate),
+              closingDate: formattedCloseDate,
             },
           },
           { upsert: true, new: true }
         );
+
         console.log("✅ Saved:", saved.name);
+        inserted++;
+
       } catch (err) {
         console.error("❌ DB Error:", err.message);
       }
@@ -84,6 +92,17 @@ const scrapeIpoData = async () => {
     await browser.close();
     const total = await IPO.countDocuments();
     console.log(`📊 Total IPOs in DB now: ${total}`);
+    console.log(`✔️ Inserted: ${inserted}, ❌ Skipped (old): ${skipped}`);
+
+    // Delete IPOs whose closingDate is more than 14 days ago
+    const cutoffDate = new Date();
+    cutoffDate.setDate(cutoffDate.getDate() - 14);
+
+    const deleted = await IPO.deleteMany({ closingDate: { $lt: cutoffDate } });
+    console.log(`🗑️ Deleted ${deleted.deletedCount} old IPOs (closed > 14 days ago)`);
+
+
+
   } catch (err) {
     console.error("❌ Error:", err.message);
     if (browser) await browser.close();
