@@ -38,10 +38,9 @@ const IpoList = () => {
     });
 
   return (
-    // <div className="min-h-screen bg-gray-950 text-gray-100 px-4 sm:px-6 md:px-10 py-10 font-sans">
-    <div className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-gray-200 px-4 sm:px-6 md:px-10 py-10 font-sans border-t border-gray-800">
 
-      <h1 className="text-4xl font-bold text-center mb-10 text-white font-serif">All Live IPO's GMP's</h1>
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-950 to-black text-gray-200 px-4 sm:px-6 md:px-10 py-10 font-sans border-t border-gray-800">
+      <h1 className="text-4xl font-bold text-center mb-10 text-white font-serif">📈 Live IPO Dashboard & GMP Tracker</h1>
 
       {/* Search Bar */}
       <div className="flex justify-center mb-8">
@@ -100,7 +99,6 @@ const IpoList = () => {
           <p className="col-span-full text-center text-gray-400">No IPOs match your search.</p>
         )}
       </div>
-
 
 
       {/* Disclaimer Section */}

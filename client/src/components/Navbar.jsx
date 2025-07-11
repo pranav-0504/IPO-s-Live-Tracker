@@ -4,10 +4,16 @@ import { FaGithub, FaLinkedin } from "react-icons/fa"; // <-- React Icons here
 
 const Navbar = () => {
   const navLinks = [
+    
     { to: "/", label: "Home" },
     { to: "/about", label: "About" }, 
-    { to: "/stats", label: "Live Stats" },
-    { to: "/technologies", label: "Technologies Used" },
+
+    // { to: "/stats", label: "Stats" },
+    
+    { to: "/register", label: "Register" }, 
+    { to: "/login", label: "Login" }, 
+    
+    { to: "/technologies", label: "Tech-Stack" },
     { to: "/feedback", label: "Feedback" }, 
   ];
 

@@ -7,77 +7,74 @@ const Feedback = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            // const res = await fetch("http://localhost:5000/api/feedback", {
-            const res = await fetch("https://ipo-s-live-tracker.onrender.com/api/feedback", {
-              // https://ipo-s-live-tracker.onrender.com/
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(form),
-            });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch("https://ipo-s-live-tracker.onrender.com/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
 
-            const data = await res.json();
-            if (res.ok) {
-            alert("✅ Feedback submitted successfully!");
-            setForm({ name: "", email: "", message: "" });
-            } else {
-            alert("❌ Error: " + data.error);
-            }
-        } catch (err) {
-            alert("❌ Could not submit feedback.");
-            console.error(err);
-        }
-    };
-
+      const data = await res.json();
+      if (res.ok) {
+        alert("✅ Feedback submitted successfully!");
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        alert("❌ Error: " + data.error);
+      }
+    } catch (err) {
+      alert("❌ Could not submit feedback.");
+      console.error(err);
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-gray-950 text-white px-6 py-10">
-      <h1 className="text-4xl font-bold text-center mb-10 text-green-400">
-        📝 We value your feedback!
-      </h1>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-950 to-black px-4">
+      <div className="w-full max-w-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-8 shadow-2xl text-white">
+        <h1 className="text-3xl font-bold text-center mb-6 text-green-400">
+          📝 We value your feedback!
+        </h1>
 
-      <form
-        onSubmit={handleSubmit}
-        className="max-w-xl mx-auto bg-gray-800 p-6 rounded-xl shadow-md space-y-5"
-      >
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          value={form.name}
-          onChange={handleChange}
-          required
-          className="w-full px-4 py-2 rounded-md bg-gray-700 text-white focus:outline-none"
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          value={form.email}
-          onChange={handleChange}
-          required
-          className="w-full px-4 py-2 rounded-md bg-gray-700 text-white focus:outline-none"
-        />
-        <textarea
-          name="message"
-          placeholder="Your Message"
-          value={form.message}
-          onChange={handleChange}
-          required
-          rows="5"
-          className="w-full px-4 py-2 rounded-md bg-gray-700 text-white focus:outline-none"
-        ></textarea>
-        <button
-          type="submit"
-          className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-6 rounded-md transition"
-        >
-          Submit
-        </button>
-      </form>
+        <form onSubmit={handleSubmit} className="space-y-5">
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            value={form.name}
+            onChange={handleChange}
+            required
+            className="w-full px-5 py-3 text-lg bg-white/10 border border-gray-700 rounded-xl placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+          />
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            value={form.email}
+            onChange={handleChange}
+            required
+            className="w-full px-5 py-3 text-lg bg-white/10 border border-gray-700 rounded-xl placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+          />
+
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            value={form.message}
+            onChange={handleChange}
+            required
+            rows="5"
+            className="w-full px-5 py-3 text-lg bg-white/10 border border-gray-700 rounded-xl placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 resize-none"
+          ></textarea>
+
+          <button
+            type="submit"
+            className="w-full py-3 bg-green-600 hover:bg-green-700 transition duration-300 text-white font-semibold rounded-xl"
+          >
+            Submit Feedback
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

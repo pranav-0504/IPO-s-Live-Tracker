@@ -10,8 +10,14 @@ import Technologies from './Pages/Technologies';
 import Feedback from './Pages/Feedback';
 import About from './Pages/About';
 
+import Register from './Pages/Register';
+import Login from './Pages/Login';
+
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+
+import Profile from './Pages/Profile';
+import PrivateRoute from "./components/PrivateRoute";      // from components/PrivateRoute.jsx
 
 
 const App = () => {
@@ -37,8 +43,16 @@ const App = () => {
             <Route path="/technologies" element = {<Technologies />}/>
             <Route path="/feedback" element = {<Feedback />}/>
             <Route path="/about" element = {<About />}/>
+
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+
+            {/* This will be the special one as it will be private route only accesbile when JWT token is matched on local storage of users device */}
+            <Route path="/profile" element={<PrivateRoute> <Profile /> </PrivateRoute>} />
+
             
             {/* Add more routes as needed */}
+
           </Routes>
         </main>
 
@@ -51,22 +65,6 @@ const App = () => {
 export default App;
 
 
-
-// const App = () => {
-//   return(
-//     <Router>
-//       <Navbar />
-//       <Routes>
-
-//         <Route path ="/" element ={<IpoList />} />
-
-//       </Routes>
-
-//       <Footer />          
-
-//     </Router>
-//   );
-// };
 
 
 // function App() {
