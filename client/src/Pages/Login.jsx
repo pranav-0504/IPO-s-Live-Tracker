@@ -34,8 +34,9 @@ const Login = () => {
       localStorage.setItem("token", res.data.token); //! Store token in localStorage
       localStorage.setItem("user", JSON.stringify(res.data.user)); //! Store user info in localStorage
 
-      setTimeout(() => navigate("/profile"), 1000);
-    } catch (err) {
+      setTimeout(() => navigate("/profile"), 500);
+    } 
+    catch (err) {
       setMessage(err.response?.data?.error || "Login failed");
     }
   };
