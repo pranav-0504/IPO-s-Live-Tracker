@@ -10,7 +10,7 @@ A powerful web app that tracks and displays real-time data of all ongoing and up
 
 ## 🚀 Features
 
-- 🔍 **Live GMP Tracking** from [InvestorGain](https://www.investorgain.com/)
+- 🔍 **Live GMP Tracking** of all Ipos's
 - 📅 **Open/Close Dates, Lot Size, Price Band, BoA & Listing Date**
 - 📊 **Real-time MongoDB Updates** via Cron Job
 - 📦 **Node.js + Express Backend**
