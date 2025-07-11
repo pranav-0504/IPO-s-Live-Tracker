@@ -16,7 +16,7 @@ const About = () => {
           <p>
             IPO Live Tracker is a real-time web application that offers a centralized dashboard to monitor
             the latest IPOs (Initial Public Offerings) in the Indian stock market. It provides insights into
-            Grey Market Premiums (GMP), IPO sizes, subscription stats, and listing timelines.
+            Grey Market Premiums (GMP), IPO sizes, subscription stats, listing timelines and automatic cleanup for outdated IPOs.
             <br /><br />
             Built using the MERN Stack, this tool is designed to help investors and market watchers
             stay updated with IPO trends and sentiments using live data and clean UI.
