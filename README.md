@@ -35,9 +35,9 @@ Other tools: `dotenv`, `node-cron`, `cors`, `chrome-aws-lambda` (for serverless 
 <!-- Replace below image URLs with your actual screenshots -->
 | Home Page | GMP Table View |
 |-----------|----------------|
-| ![Home](<img width="1919" height="938" alt="image" src="https://github.com/user-attachments/assets/4b5fdb65-2fbb-4b9d-8268-2bd1a4da8966" />
-) | ![Table](<img width="1919" height="884" alt="image" src="https://github.com/user-attachments/assets/79daf8f9-f89b-405f-b54e-e35cea08c1dd" />
-) |
+| ![Home](<img width="1919" height="938" alt="image" src="https://github.com/user-attachments/assets/4b5fdb65-2fbb-4b9d-8268-2bd1a4da8966" />) 
+| ![Table](<img width="1919" height="884" alt="image" src="https://github.com/user-attachments/assets/79daf8f9-f89b-405f-b54e-e35cea08c1dd" />)
+| ![Table] (<img width="979" height="796" alt="image" src="https://github.com/user-attachments/assets/56a06422-ec93-49a6-a3f6-0f4a9495bde0" />)
 
 ---
 
