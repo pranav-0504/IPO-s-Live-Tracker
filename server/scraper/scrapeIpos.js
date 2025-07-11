@@ -54,12 +54,23 @@ const scrapeIpoData = async () => {
 
     for (const ipo of ipoData) {
       try {
+
+        const currentYear = new Date().getFullYear();
+        const rawCloseDate = ipo.closeDate;             // e.g., "8-Jul" or "11-Jul"
+        const [day, month] = rawCloseDate.split('-');   // "8", "Jul"
+        
+        // const formattedCloseDate = new Date(`${ipo.closeDate}-2025`); // Assuming year is 2025
+        const formattedCloseDate = new Date(`${month} ${day} ${currentYear}`); // "Jul 08 2025"
+
         const saved = await IPO.findOneAndUpdate(
           { baseName: ipo.baseName },
           {
             $set: {
               ...ipo,
               gmpUpdatedAt: new Date(),
+              closingDate: formattedCloseDate, 
+
+              // closingDate: new Date(ipo.closeDate),
             },
           },
           { upsert: true, new: true }

@@ -15,6 +15,10 @@ const ipoSchema = new mongoose.Schema({
   listingDate: { type: String },
   gmpUpdatedAt: { type: Date, default: Date.now },
   ipoType: { type: String, enum: ["Mainboard", "SME"], required: true },
+
+  // For tracking IPOs that have closed and will delete them after 7 days from the database {for backend only}
+  closingDate: { type: Date, required: true },
+
 });
 
 module.exports = mongoose.model("IPO", ipoSchema);

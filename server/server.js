@@ -2,14 +2,13 @@ require('dotenv').config();     // calling dotenv to load environment variables 
 
 const express = require('express');
 const mongoose = require('mongoose');
-
 const cors = require('cors');       // Importing CORS for frontend se backend ko connect karne ke liye
 
 const ipoRoutes= require('./Routes/ipoRoutes');   // Importing the routes for IPOs
-
 const scrapeIpoData = require('./scraper/scrapeIpos');
 const feedbackRoute = require('./Routes/feedbackRoute');
-// Importing the feedback route for handling feedback submissions
+//! Importing the feedback route for handling feedback submissions
+const cleanOldIpos = require("./scraper/cleanOldIpos");
 
 const app = express();
 
@@ -22,7 +21,7 @@ app.use(cors({
 
 app.use(express.json());    // Middleware to parse JSON bodies
 
-// default route testing:
+// default route testing:     //! localhost:5000/
 app.get('/', (req, res) => {
     res.send('Welcome to the server backend running perfectly!');
 });
@@ -56,7 +55,11 @@ mongoose.connect(process.env.MONGO_URI)         // connecting with DB
     // setInterval(scrapeIpoData, 15 * 60 * 1000);
 
     // 🔁 Run every 15 minutes for testing
-    setInterval(scrapeIpoData, 15 * 60 * 1000);
+    setInterval(scrapeIpoData, 1 * 60 * 1000);
+
+    //! cleanOldIpos function ko call karenge:
+    await cleanOldIpos();  // 🔁 Run once on server start
+    setInterval(cleanOldIpos, 9 * 60 * 60 * 1000);        // 🔁 Every 9 hours
 
     app.listen(PORT, () => {
       console.log(`🚀 Server running at http://localhost: ${PORT}`);
