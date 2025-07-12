@@ -10,6 +10,7 @@ const scrapeIpoData = require('./scraper/scrapeIpos');
 const feedbackRoute = require('./Routes/feedbackRoute');
 
 const authRoutes = require('./Routes/authRoutes');  // Importing the authentication routes
+const userRoutes = require('./Routes/userRoutes');
 
 const app = express();
 
