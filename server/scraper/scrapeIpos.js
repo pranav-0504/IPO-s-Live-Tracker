@@ -21,7 +21,7 @@ const scrapeIpoData = async () => {
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
     );
 
-    await page.goto('https://www.investorgain.com/report/live-ipo-gmp/331/all/', {
+    await page.goto(process.env.SITE_URL, {
       waitUntil: 'networkidle0',
     });
 
