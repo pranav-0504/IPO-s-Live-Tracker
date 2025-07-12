@@ -6,6 +6,7 @@ import dotEnvLogo from "../assets/Tech-logos/dotenv.png";
 import NodemonLogo from "../assets/Tech-logos/Nodemon.png";
 import PostManLOGO from "../assets/Tech-logos/PostManLogo.png";
 import RenderLogo from "../assets/Tech-logos/Render.png";
+import JWTLogo from "../assets/Tech-logos/JWT.png";
 
 const technologies = [
   {
@@ -39,6 +40,11 @@ const technologies = [
     role: "API Requests",
   },
   {
+    name: "JWT Tokens",
+    logo: JWTLogo,
+    role: "For User Authentication & Authorization",
+  },
+  {
     name: "Vite",
     logo: "https://vitejs.dev/logo.svg",
     role: "Frontend Build Tool",
@@ -53,11 +59,11 @@ const technologies = [
     logo: cheerioLogo,
     role: "HTML/XML parsing Library for Web Scraping",
   },
-  {
-    name: "Heroicons",
-    logo: "https://avatars.githubusercontent.com/u/79788229?s=200&v=4",
-    role: "Icons Library",
-  },
+  // {
+  //   name: "Heroicons",
+  //   logo: "https://avatars.githubusercontent.com/u/79788229?s=200&v=4",
+  //   role: "Icons Library",
+  // },
   {
     name: "HTML",
     logo: HTMLLogo,
@@ -86,7 +92,7 @@ const technologies = [
   {
     name: "Render",
     logo: RenderLogo,
-    role: "Backend server hosting",
+    role: "Backend server hosting For Deployment",
   },
 ];
 
@@ -101,12 +107,12 @@ const Technologies = () => {
         {technologies.map((tech, idx) => (
           <div
             key={idx}
-            className="bg-white/10 backdrop-blur-lg p-6 rounded-2xl border border-white/10 shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 text-center"
+            className="bg-white/10 backdrop-blur-lg p-6 rounded-2xl border border-white/15 shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 text-center"
           >
             <img
               src={tech.logo}
               alt={tech.name}
-              className="w-16 h-16 object-contain mx-auto mb-4 rounded-full bg-white/20 p-2"
+              className="w-15 h-16 object-contain mx-auto mb-4 bg-white/ p-0"
             />
             <h2 className="text-xl font-semibold text-green-300">{tech.name}</h2>
             <p className="text-gray-300 text-sm mt-2">{tech.role}</p>
