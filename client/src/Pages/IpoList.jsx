@@ -41,7 +41,7 @@ const IpoList = () => {
 
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-950 to-black text-gray-200 px-4 sm:px-6 md:px-10 py-10 font-sans border-t border-gray-800">
       <h1 className="text-4xl font-bold text-center mb-10 text-white font-serif">📈 Live IPO Dashboard & GMP Tracker</h1>
-
+      
       {/* Search Bar */}
       <div className="flex justify-center mb-8">
         <div className="relative w-full max-w-md">
