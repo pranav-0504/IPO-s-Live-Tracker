@@ -1,6 +1,6 @@
-# 📈 IPO Live Tracker MERN
+# 📈 IPO Live Tracker MERN Stack APP
 
-A powerful web app that tracks and displays real-time data of all ongoing and upcoming IPOs in India. This project uses **web scraping**, **MongoDB Atlas**, **Node.js**, and a modern React.js frontend to give users instant GMP updates and IPO info — all in one place.
+A powerful web app that tracks and displays real-time GMP data of all ongoing and upcoming IPOs in India. This project uses **web scraping**, **MongoDB Atlas**, **Node.js**, **Express JS** and a modern React.js frontend to give users instant GMP updates and IPO info — all in one place.
 Built a real-world web platform to track Live GMP & key insights of all active IPOs in India — A space
 monitored by lakhs of investors & Indian market analysts for informed decision-making
 
