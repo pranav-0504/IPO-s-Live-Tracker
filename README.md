@@ -1,10 +1,12 @@
 # 📈 IPO Live Tracker MERN
 
 A powerful web app that tracks and displays real-time data of all ongoing and upcoming IPOs in India. This project uses **web scraping**, **MongoDB Atlas**, **Node.js**, and a modern React.js frontend to give users instant GMP updates and IPO info — all in one place.
+Built a real-world web platform to track Live GMP & key insights of all active IPOs in India — A space
+monitored by lakhs of investors & Indian market analysts for informed decision-making
 
 ![Status](https://img.shields.io/badge/status-live-brightgreen) ![License](https://img.shields.io/badge/license-MIT-blue) ![PRs](https://img.shields.io/badge/PRs-welcome-yellow)
 
-> 🔗 Live Demo: https://ipo-live-tracker.netlify.app/feedback
+> 🔗 Live Demo: https://ipo-live-tracker.netlify.app/
 
 ---
 
