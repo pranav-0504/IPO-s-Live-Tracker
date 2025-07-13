@@ -83,9 +83,6 @@ Live GMP data is scraped from trusted sources using Puppeteer/Cheerio.
 ## 🌐 Live Website
 👉 [ipo-live-tracker.netlify.app](https://ipo-live-tracker.netlify.app)
 
-## 📁 Backend Endpoint
-👉 [https://ipo-s-live-tracker.onrender.com/api/scrape](https://ipo-s-live-tracker.onrender.com/api/scrape)
-
 ---
 
 ## 🤝 Contribution
