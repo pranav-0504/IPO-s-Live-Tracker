@@ -1,109 +1,98 @@
-# 📈 IPO Live Tracker MERN Stack APP
+# 🚀 IPO Live Tracker
 
-A powerful web app that tracks and displays real-time GMP data of all ongoing and upcoming IPOs in India. This project uses **web scraping**, **MongoDB Atlas**, **Node.js**, **Express JS** and a modern React.js frontend to give users instant GMP updates and IPO info — all in one place.
-Built a real-world web platform to track Live GMP & key insights of all active IPOs in India — A space
-monitored by lakhs of investors & Indian market analysts for informed decision-making
-
-![Status](https://img.shields.io/badge/status-live-brightgreen) ![License](https://img.shields.io/badge/license-MIT-blue) ![PRs](https://img.shields.io/badge/PRs-welcome-yellow)
-
-> 🔗 Live Demo: https://ipo-live-tracker.netlify.app/
+> A real-time dashboard to track all active & upcoming IPOs in the Indian stock market with live GMP, subscription data, and more.
 
 ---
 
-## 🚀 Features
+![Banner](https://your-banner-image-if-any)
 
-- 🔍 **Live GMP Tracking** of all Ipos's
-- 📅 **Open/Close Dates, Lot Size, Price Band, BoA & Listing Date**
-- 📊 **Real-time MongoDB Updates** via Cron Job
-- 📦 **Node.js + Express Backend**
-- ⚛️ **React.js + Tailwind Frontend**
-- 🧠 **Dynamic Filtering & Clean UI**
-- 🌐 **Hosted on Render (backend) + Railway (optional)**
+## 📌 About This Project
+**IPO Live Tracker** is a real-world full-stack web application built using the **MERN Stack** (MongoDB, Express.js, React.js, Node.js) that offers a centralized, clean UI to monitor ongoing and upcoming IPOs.
+
+It helps users (especially retail investors and IPO enthusiasts) stay updated with:
+- 💹 **Live Grey Market Premium (GMP)**
+- 🧾 **Subscription Data (Retail, QIB, HNI)**
+- 📅 **Open/Close Dates, Lot Sizes, Price Bands**
+- 📊 **Upcoming, Ongoing, Closed IPO filtering**
+
+Live GMP data is scraped from trusted sources using Puppeteer/Cheerio.
 
 ---
 
-## 🧰 Tech Stack
+## 🔥 Key Features
 
-| Frontend | Backend | Scraping | Database |
-|---------|---------|----------|----------|
-| React.js | Node.js + Express | Puppeteer + Cheerio | MongoDB Atlas |
+- 📈 **Live GMP & Subscription Stats**
+- 🔍 Search IPOs by name and filter by status (Open, Closed, Upcoming)
+- 🏷️ Filter by category (Mainboard or SME IPOs)
+- 📂 Automatically removes outdated IPOs
+- 🧠 Built-in Bookmark/Wishlist feature for logged-in users *(WIP)*
+- 📬 Feedback form for users to suggest updates
 
-Other tools: `dotenv`, `node-cron`, `cors`, `chrome-aws-lambda` (for serverless deploy)
+---
+
+## 💻 Tech Stack
+
+### Frontend
+- React.js
+- Tailwind CSS
+- Vite.js
+- Axios
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB + Mongoose
+- JWT Authentication
+- Puppeteer / Cheerio for Web Scraping
+
+### Deployment
+- Frontend: **Netlify**
+- Backend/API: **Render**
+- Cron Jobs: **cron-job.org**
 
 ---
 
 ## 📸 Screenshots
 
-<!-- Replace below image URLs with your actual screenshots -->
- ![Home](<img width="1919" height="938" alt="image" src="https://github.com/user-attachments/assets/4b5fdb65-2fbb-4b9d-8268-2bd1a4da8966" />
- 
- ![Table](<img width="1919" height="884" alt="image" src="https://github.com/user-attachments/assets/79daf8f9-f89b-405f-b54e-e35cea08c1dd" />
+### 🔹 Home (Dashboard with live IPO cards)
+![Home](screenshots/home.png)
 
- ![Table] (<img width="979" height="796" alt="image" src="https://github.com/user-attachments/assets/56a06422-ec93-49a6-a3f6-0f4a9495bde0" />
+### 🔹 About Page
+![About](screenshots/about.png)
 
+### 🔹 Register / Login Pages
+![Register](screenshots/register.png)
+![Login](screenshots/login.png)
 
----
-
-## 📁 Folder Structure
-root/
-│
-├── client/ # React frontend
-├── server/ # Express backend
-│ ├── models/ # Mongoose models
-│ ├── routes/ # Express routes
-│ └── scripts/ # Web scraping logic
-├── .env
-└── README.md
+### 🔹 Tech Stack Page
+![Tech](screenshots/techstack.png)
 
 ---
 
-## ⚙️ Setup Locally
+## 🧠 Developer Notes
 
-```bash
-# Clone the repo
-git clone https://github.com/pranav-0504/IPO-s-Live-Tracker.git
+- This project is built with real-world usage in mind.
+- Designed for scalability (can be extended to support other market segments).
+- Inspired by how actual investors track IPO sentiment daily.
 
-# Go to backend
-cd IPO-s-Live-Tracker/server
-npm install
+---
 
-# Go to frontend
-cd ../client
-npm install
+## 🌐 Live Website
+👉 [ipo-live-tracker.netlify.app](https://ipo-live-tracker.netlify.app)
 
-# Start backend
-npm run dev
+## 📁 Backend Endpoint
+👉 [https://ipo-s-live-tracker.onrender.com/api/scrape](https://ipo-s-live-tracker.onrender.com/api/scrape)
 
-# Start frontend
-npm start
+---
 
-🌍 Environment Variables
-In /server/.env:
-  MONGO_URI=your_mongodb_connection_string
-  NODE_ENV=development
-  PORT=your_backend_port
+## 🤝 Contribution
+Pull requests are welcome! Open issues to suggest features or report bugs.
 
-In /client/.env (optional if using proxy):
-  REACT_APP_BACKEND_URL=http://localhost:PORT
+---
 
-⏱ Deployment Setup (Render + Railway)
-  1. Backend: Deployed on Render
-  2. Scraper + MongoDB Update: Runs via node-cron every 15 mins
-  3. Frontend (Optional): Deploy to Netlify/Vercel
-  4. Bonus: Keep Render alive with cron ping (/api/scrape every 2 mins)
+## 📬 Contact
+Created by [**Pranav Aggarwal**](https://www.linkedin.com/in/pranav-aggarwal04) – feel free to reach out for collaborations!
 
+---
 
-📌 To-Do (Future Enhancements)
- 1. Add login/signup for tracking favorite IPOs
- 2. Add email alerts when IPO GMP changes
- 3. Live Subscription Detailed Stats from NSE/BSE
- 4. Graphs 📈 for GMP trends over time
-
-💻 Author
-Made with 💙 by Pranav Aggarwal
-GitHub
-LinkedIn (Add if you want)
-Portfolio (Optional)
-
-
-
+> ⭐ Don’t forget to **Star** the repo if you like it!
