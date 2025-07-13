@@ -24,7 +24,8 @@ Live GMP data is scraped from trusted sources using Puppeteer/Cheerio.
 - 🔍 Search IPOs by name and filter by status (Open, Closed, Upcoming)
 - 🏷️ Filter by category (Mainboard or SME IPOs)
 - 📂 Automatically removes outdated IPOs
-- 🧠 Built-in Bookmark/Wishlist feature for logged-in users *(WIP)*
+- Login and Register Functionality For Users to Wishlist Ipo's and track GMP's with Alerts. 
+- 🧠 Built-in Bookmark/Wishlist feature for logged-in users *Under Development WIll come in future*
 - 📬 Feedback form for users to suggest updates
 
 ---
@@ -54,17 +55,20 @@ Live GMP data is scraped from trusted sources using Puppeteer/Cheerio.
 ## 📸 Screenshots
 
 ### 🔹 Home (Dashboard with live IPO cards)
-![Home](screenshots/home.png)
+<img width="1919" height="948" alt="image" src="https://github.com/user-attachments/assets/4bc9045a-7601-4c1a-94a6-14a76e66fd33" />
+
 
 ### 🔹 About Page
-![About](screenshots/about.png)
+<img width="1919" height="1016" alt="image" src="https://github.com/user-attachments/assets/0d0f22d4-83be-4cc0-9bdf-7af91b255122" />
+
 
 ### 🔹 Register / Login Pages
-![Register](screenshots/register.png)
-![Login](screenshots/login.png)
+<img width="1919" height="1021" alt="image" src="https://github.com/user-attachments/assets/06d9dfe1-c349-4c5f-8cfa-b5fc81e84061" />
+<img width="1722" height="862" alt="image" src="https://github.com/user-attachments/assets/22e0a848-a8d8-4d3e-a3c8-e0ff926dec99" />
+
 
 ### 🔹 Tech Stack Page
-![Tech](screenshots/techstack.png)
+<img width="1042" height="883" alt="image" src="https://github.com/user-attachments/assets/14c5f8c3-722b-40bc-bec2-e7250cf874bb" />
 
 ---
 
