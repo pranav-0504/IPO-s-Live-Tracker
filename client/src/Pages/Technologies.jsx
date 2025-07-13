@@ -7,7 +7,7 @@ import NodemonLogo from "../assets/Tech-logos/Nodemon.png";
 import PostManLOGO from "../assets/Tech-logos/PostManLogo.png";
 import RenderLogo from "../assets/Tech-logos/Render.png";
 import JWTLogo from "../assets/Tech-logos/JWT.png";
-
+import CorsLogo from "../assets/Tech-logos/CORS.png";
 const technologies = [
   {
     name: "React.js",
@@ -45,9 +45,9 @@ const technologies = [
     role: "For User Authentication & Authorization",
   },
   {
-    name: "Vite",
-    logo: "https://vitejs.dev/logo.svg",
-    role: "Frontend Build Tool",
+    name: "JavaScript",
+    logo: jsLogo,
+    role: "Core Scripting Language for Web",
   },
   {
     name: "GitHub",
@@ -55,34 +55,9 @@ const technologies = [
     role: "Version Control",
   },
   {
-    name: "Cheerios",
-    logo: cheerioLogo,
-    role: "HTML/XML parsing Library for Web Scraping",
-  },
-  // {
-  //   name: "Heroicons",
-  //   logo: "https://avatars.githubusercontent.com/u/79788229?s=200&v=4",
-  //   role: "Icons Library",
-  // },
-  {
-    name: "HTML",
-    logo: HTMLLogo,
-    role: "Markup Language",
-  },
-  {
-    name: "JavaScript",
-    logo: jsLogo,
-    role: "Core Scripting Language for Web",
-  },
-  {
-    name: "dotENV File",
-    logo: dotEnvLogo,
-    role: "Manage environment variables",
-  },
-  {
-    name: "Nodemon",
-    logo: NodemonLogo,
-    role: "Auto-restart server for backend dev",
+    name: "Vite",
+    logo: "https://vitejs.dev/logo.svg",
+    role: "Frontend Build Tool",
   },
   {
     name: "Postman",
@@ -94,6 +69,33 @@ const technologies = [
     logo: RenderLogo,
     role: "Backend server hosting For Deployment",
   },
+  {
+    name: "Cheerios",
+    logo: cheerioLogo,
+    role: "HTML/XML parsing Library for Web Scraping",
+  },
+  // {
+  //   name: "HTML",
+  //   logo: HTMLLogo,
+  //   role: "Markup Language",
+  // },
+  {
+    name: "CORS",
+    logo: CorsLogo,
+    role: "Handles cross-origin requests between client and server.",
+  },
+
+  {
+    name: "dotENV File",
+    logo: dotEnvLogo,
+    role: "Manage environment variables",
+  },
+  {
+    name: "Nodemon",
+    logo: NodemonLogo,
+    role: "Auto-restart server for backend dev",
+  },
+
 ];
 
 const Technologies = () => {
