@@ -4,7 +4,8 @@
 
 ---
 
-![Banner](<img width="1919" height="948" alt="image" src="https://github.com/user-attachments/assets/b0043d61-8ad1-4dbd-94da-d0cfb7ae8e80" />)
+![Banner](<img width="1919" height="948" alt="image" src="https://github.com/user-attachments/assets/b0043d61-8ad1-4dbd-94da-d0cfb7ae8e80" />
+)
 
 ## 📌 About This Project
 **IPO Live Tracker** is a real-world full-stack web application built using the **MERN Stack** (MongoDB, Express.js, React.js, Node.js) that offers a centralized, clean UI to monitor ongoing and upcoming IPOs.
