@@ -39,7 +39,11 @@ const scrapeIpoData = async () => {
         const name = getText(row, "Name");
         if (!name) return null;
 
-        const baseName = name.split("IPO")[0].trim();
+        //! const baseName = name.split("IPO")[0].trim();
+        const baseName = name
+              .replace(/IPO.*$/i, "")
+              .trim()
+              .toLowerCase();
 
         return {
           name,
@@ -83,11 +87,10 @@ const scrapeIpoData = async () => {
         }
 
         const saved = await IPO.findOneAndUpdate(
-          { baseName },   // normalized
+          { baseName: ipo.baseName },   // ✅ CORRECT
           {
             $set: {
               ...ipo,
-              baseName,
               gmpUpdatedAt: new Date(),
             },
           },
