@@ -99,7 +99,7 @@ const IpoList = () => {
 
           <div className="col-span-full text-center text-gray-400 space-y-2">
               <p>No IPOs match your search.</p>
-              <p className="text-lg text-gray-500 italic">
+              {/* <p className="text-lg text-gray-500 italic">
                 ℹ️ Our server may be in sleep mode due to inactivity.
                 It usually takes around{" "}
                 <span className="text-green-400 font-semibold">
@@ -107,7 +107,7 @@ const IpoList = () => {
                 </span>{" "}
                 to automatically restart.
                 Please wait a moment and refresh the page.
-              </p>
+              </p> */}
           </div>
 
           // <p className="col-span-full text-center text-gray-400">No IPOs match your search</p>
