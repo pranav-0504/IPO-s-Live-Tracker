@@ -26,35 +26,42 @@ const scrapeIpoData = async () => {
     });
 
     const ipoData = await page.evaluate(() => {
-      const rows = Array.from(document.querySelectorAll('#report_table tbody tr'));
+      const rows = Array.from(document.querySelectorAll("#report_table tbody tr"));
+
+      const getText = (row, label) => {
+        const td = row.querySelector(`td[data-label="${label}"]`);
+        if (!td) return "";
+        const div = td.querySelector("div");
+        return (div ? div.innerText : td.innerText).trim();
+      };
+
       return rows.map(row => {
-        const cols = row.querySelectorAll('td');
-        if (cols.length < 5) return null;
+        const name = getText(row, "Name");
+        if (!name) return null;
 
-        const get = (label) =>
-          Array.from(cols).find(td => td.getAttribute('data-label') === label)?.textContent.trim() || '';
-
-        const name = get('Name');
-        const baseName = name.split('IPO')[0].trim();
-        if (!baseName || !name) return null;
+        const baseName = name.split("IPO")[0].trim();
 
         return {
           name,
           baseName,
-          gmp: get('GMP'),
-          price: get('Price'),
-          estListing: get('Est Listing'),
-          sub: get('Sub'),
-          ipoSize: get('IPO Size'),
-          lotSize: parseInt(get('Lot')) || undefined,
-          openDate: get('Open'),
-          closeDate: get('Close'),
-          boadate: get('BoA Dt'),
-          listingDate: get('Listing'),
-          ipoType: name.toLowerCase().includes('sme') ? 'SME' : 'Mainboard',
+          gmp: getText(row, "GMP"),
+          rating: getText(row, "Rating"),
+          sub: getText(row, "Sub"),
+          price: getText(row, "Price (₹)"),
+          ipoSize: getText(row, "IPO Size (₹ in cr)"),
+          // price: price.replace(/[₹,]/g, ""),
+          // ipoSize: ipoSize.replace(/[₹,]/g, ""),
+
+          lotSize: parseInt(getText(row, "Lot")) || undefined,
+          openDate: getText(row, "Open"),
+          closeDate: getText(row, "Close"),
+          boadate: getText(row, "BoA Dt"),
+          listingDate: getText(row, "Listing"),
+          ipoType: name.toLowerCase().includes("sme") ? "SME" : "Mainboard",
         };
       }).filter(Boolean);
     });
+
 
     console.log(`🔍 Fetched ${ipoData.length} IPO rows`);
 
