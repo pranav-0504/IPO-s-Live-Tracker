@@ -83,12 +83,12 @@ const scrapeIpoData = async () => {
         }
 
         const saved = await IPO.findOneAndUpdate(
-          { baseName: ipo.baseName },
+          { baseName },   // normalized
           {
             $set: {
               ...ipo,
+              baseName,
               gmpUpdatedAt: new Date(),
-              closingDate: formattedCloseDate,
             },
           },
           { upsert: true, new: true }
