@@ -77,7 +77,7 @@ const scrapeIpoData = async () => {
 
         // 👉 Skip if IPO is closed more than 5 days ago
         const diffInDays = (today - formattedCloseDate) / (1000 * 60 * 60 * 24);
-        if (diffInDays > 14) {
+        if (diffInDays > 50) {
           skipped++;
           continue;
         }
