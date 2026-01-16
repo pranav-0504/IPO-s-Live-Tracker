@@ -59,7 +59,7 @@ mongoose.connect(process.env.MONGO_URI)         // connecting with DB
     // setInterval(scrapeIpoData, 15 * 60 * 1000);
 
     // 🔁 Run every 30 minutes for testing
-    setInterval(scrapeIpoData, 2 * 60  * 1000);
+    setInterval(scrapeIpoData, 1 * 60  * 1000);
 
     app.listen(PORT, () => {
       console.log(`🚀 Server running at http://localhost: ${PORT}`);
