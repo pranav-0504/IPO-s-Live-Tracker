@@ -76,34 +76,31 @@ const scrapeIpoData = async () => {
 
     for (const ipo of ipoData) {
       try {
-        const [day, month] = ipo.closeDate.split('-');
+        const cleanCloseDate = ipo.closeDate.split("GMP")[0].trim();
+        const [day, month] = cleanCloseDate.split("-");
         const formattedCloseDate = new Date(`${month} ${day} ${currentYear}`);
 
-        // 👉 Skip if IPO is closed more than 5 days ago
         const diffInDays = (today - formattedCloseDate) / (1000 * 60 * 60 * 24);
-        if (diffInDays > 50) {
-          skipped++;
-          continue;
-        }
+        if (diffInDays > 50) continue;
 
         const saved = await IPO.findOneAndUpdate(
-          { baseName: ipo.baseName },   // ✅ CORRECT
+          { baseName: ipo.baseName },
           {
             $set: {
               ...ipo,
               gmpUpdatedAt: new Date(),
+              closingDate: formattedCloseDate,
             },
           },
           { upsert: true, new: true }
         );
 
-        console.log("✅ Saved:", saved.name);
-        inserted++;
-
+        console.log("✅ Updated:", saved.name);
       } catch (err) {
         console.error("❌ DB Error:", err.message);
       }
     }
+
 
     await browser.close();
     const total = await IPO.countDocuments();
