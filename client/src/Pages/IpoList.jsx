@@ -92,7 +92,7 @@ const IpoList = () => {
       </div>
 
       {/* IPO Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {filteredIpos.length > 0 ? (
           filteredIpos.map((ipo) => <IpoCard key={ipo._id} ipo={ipo} />)
         ) : (
@@ -119,7 +119,37 @@ const IpoList = () => {
           // </p>
           
         )}
+      </div> */}
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {loading ? (
+          <p className="col-span-full text-center text-gray-400">
+            Loading IPO data…
+          </p>
+        ) : serverInactive ? (
+          <div className="col-span-full text-center text-gray-400 space-y-2">
+            <p>No IPOs available right now.</p>
+            <p className="text-sm text-gray-500 italic">
+              ℹ️ Our server may be in sleep mode due to inactivity.
+              It usually takes around{" "}
+              <span className="text-green-400 font-semibold">
+                30–50 seconds
+              </span>{" "}
+              to automatically restart.
+              Please wait a moment and refresh the page.
+            </p>
+          </div>
+        ) : filteredIpos.length > 0 ? (
+          filteredIpos.map((ipo) => (
+            <IpoCard key={ipo._id} ipo={ipo} />
+          ))
+        ) : (
+          <p className="col-span-full text-center text-gray-400">
+            No IPOs match your search.
+          </p>
+        )}
       </div>
+
 
 
       {/* Disclaimer Section */}
