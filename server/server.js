@@ -28,6 +28,10 @@ app.get('/', (req, res) => {
     res.send('Welcome to the server backend running perfectly!');
 });
 
+app.get("/health", (req, res) => {
+  res.status(200).send("OK");
+});
+
 // get Request
 app.get('/api/scrape', async (req, res) => {
   try {
