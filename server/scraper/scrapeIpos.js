@@ -47,9 +47,11 @@ const scrapeIpoData = async () => {
 
           // 🔑 Stable key
           const baseName = name
-            .replace(/IPO.*$/i, "")
-            .trim()
-            .toLowerCase();
+            .toLowerCase()
+            .replace(/ipo.*$/i, "")
+            .replace(/\s+/g, " ")   // 🔥 THIS WAS MISSING
+            .trim();
+
 
           // ✅ EXPLICIT STATUS (NO GUESSWORK IN FRONTEND)
           const status = name.includes("CAllotted")
