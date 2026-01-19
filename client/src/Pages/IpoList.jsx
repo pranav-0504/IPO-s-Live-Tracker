@@ -26,16 +26,21 @@ const IpoList = () => {
       .catch(err => console.error("Error fetching IPOs:", err.message));
   }, []);
 
-  const filteredIpos = [...ipos]
-    .reverse()
-    .filter((ipo) => {
-      const matchesSearch = ipo.name.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchesFilter = filterType === "all" ||
-        (filterType === "mainboard" && ipo.ipoType === "Mainboard") ||
-        (filterType === "sme" && ipo.ipoType === "SME");
-      const matchesStatus = statusType === "all" || ipo.name.endsWith(statusType.toUpperCase());
-      return matchesSearch && matchesFilter && matchesStatus;
-    });
+  const filteredIpos = ipos.filter((ipo) => {
+    const matchesSearch = ipo.name
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase());
+
+    const matchesFilter =
+      filterType === "all" ||
+      (filterType === "mainboard" && ipo.ipoType === "Mainboard") ||
+      (filterType === "sme" && ipo.ipoType === "SME");
+
+    const matchesStatus =
+      statusType === "all" || ipo.status === statusType;
+
+    return matchesSearch && matchesFilter && matchesStatus;
+  });
 
   return (
 
@@ -98,12 +103,6 @@ const IpoList = () => {
         ) : (
 
           <p className="col-span-full text-center text-gray-400">No IPOs match your search</p>
-          
-          // <p className="text-sm text-gray-500 italic">
-          //   ℹ️ Our server may be in sleep mode due to inactivity.  
-          //   It usually takes around <span className="text-green-400 font-semibold">30–50 seconds</span> to automatically restart.  
-          //   Please wait a moment and refresh the page.
-          // </p>
           
         )}
       </div>
