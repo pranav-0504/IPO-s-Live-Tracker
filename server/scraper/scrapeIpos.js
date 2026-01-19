@@ -47,9 +47,8 @@ const scrapeIpoData = async () => {
 
           // 🔑 Stable key
           const baseName = name
-            .toLowerCase()
-            .replace(/ipo.*$/i, "")
-            .replace(/\s+/g, " ")   // 🔥 THIS WAS MISSING
+            .toLowerCase()  
+            .replace(/[^a-z]/g, "")
             .trim();
 
 
