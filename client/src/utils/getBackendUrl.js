@@ -1,12 +1,23 @@
+// const getBackendUrl = () => {
+//   const isLocalhost = window.location.hostname === "localhost";
+//   return isLocalhost
+//     // ? "http://localhost:5000"          //  Local Development Server
+//     ? "http://13.234.204.195:5000/"       //! AWS Cloud HOSTED SERVER 
+//     : "https://ipo-s-live-tracker.onrender.com";      //  Render.com Hosted Server
+// };  
+
+// export default getBackendUrl;
+
 const getBackendUrl = () => {
   const isLocalhost = window.location.hostname === "localhost";
+
   return isLocalhost
-    // ? "http://localhost:5000"          //  Local Development Server
-    ? "http://13.234.204.195:5000/"       //! AWS Cloud HOSTED SERVER 
-    : "https://ipo-s-live-tracker.onrender.com";      //  Render.com Hosted Server
-};  
+    ? "http://localhost:5000"              // ✅ Local backend
+    : "http://13.234.204.195:5000";        // ✅ AWS EC2 backend
+};
 
 export default getBackendUrl;
+
 
 
 // ! AWS Cloud HOSTED SERVER Backend Links
