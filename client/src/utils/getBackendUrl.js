@@ -8,16 +8,21 @@
 
 // export default getBackendUrl;
 
-const getBackendUrl = () => {
-  const isLocalhost = window.location.hostname === "localhost";
+// const getBackendUrl = () => {
+//   const isLocalhost = window.location.hostname === "localhost";
 
-  return isLocalhost
-    ? "http://localhost:5000"              // ✅ Local backend
-    : "http://13.234.204.195:5000";        // ✅ AWS EC2 backend
+//   return isLocalhost
+//     ? "http://localhost:5000"              // ✅ Local backend
+//     : "http://13.234.204.195:5000";        // ✅ AWS EC2 backend
+// };
+
+// export default getBackendUrl;
+
+const getBackendUrl = () => {
+  return "/api";
 };
 
 export default getBackendUrl;
-
 
 
 // ! AWS Cloud HOSTED SERVER Backend Links

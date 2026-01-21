@@ -18,8 +18,9 @@ const IpoList = () => {
 
     const backendURL = getBackendUrl();     // Using utility function to get backend URL
 
+    // axios.get(`http://13.234.204.195:5000/api/ipos`)     // Using utility function to get backend URL
     // axios.get(`${backendURL}/api/ipos`)     // Using utility function to get backend URL
-    axios.get(`http://13.234.204.195:5000/api/ipos`)     // Using utility function to get backend URL
+    axios.get(`${backendURL}/ipos`)     // Using utility function to get backend URL
       .then(res => {
         console.log("Fetched IPOs:", res.data);
         setIpos(res.data);
