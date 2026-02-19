@@ -19,7 +19,8 @@
 // export default getBackendUrl;
 
 const getBackendUrl = () => {
-  return "/api";
+  // return "/api";
+  return "http://13.234.204.195:5000/api";  // AWS EC2 backend
 };
 
 export default getBackendUrl;
