@@ -19,8 +19,8 @@
 // export default getBackendUrl;
 
 const getBackendUrl = () => {
-  // return "/api";
-  return "http://13.234.204.195:5000/"; 
+  return "/api";
+  // return "http://13.234.204.195:5000/"; 
 };
 
 export default getBackendUrl;
