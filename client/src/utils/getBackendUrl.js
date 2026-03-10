@@ -2,7 +2,7 @@
 //   const isLocalhost = window.location.hostname === "localhost";
 //   return isLocalhost
 //     // ? "http://localhost:5000"          //  Local Development Server
-//     ? "http://13.234.204.195:5000/"       //! AWS Cloud HOSTED SERVER 
+//     ? "http://15.206.123.244:5000/"       //! AWS Cloud HOSTED SERVER 
 //     : "https://ipo-s-live-tracker.onrender.com";      //  Render.com Hosted Server
 // };  
 
